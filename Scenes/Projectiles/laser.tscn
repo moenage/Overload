@@ -8,8 +8,9 @@ radius = 5.0
 height = 58.0
 
 [node name="Laser" type="Area2D"]
+scale = Vector2(1, 2)
 script = ExtResource("1_t2spy")
-speed = 2000
+speed = 1500
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

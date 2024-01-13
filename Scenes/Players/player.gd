@@ -4,9 +4,6 @@ var playerSpeed: int = 500
 
 var canLaser: bool = true
 
-
-
-
 signal shotLaser(pos, laserDir)
 
 func _process(_delta):
