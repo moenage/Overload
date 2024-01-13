@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx01r5ikeih0n"]
+
+[ext_resource type="Texture2D" uid="uid://edmehrxmn2xa" path="res://Assets/Sprites/Enemies/ship_sidesA.png" id="1_0ww3s"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy_1.gd" id="1_fiob4"]
+
+[node name="Enemy1" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 4
+collision_mask = 27
+script = ExtResource("1_fiob4")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.278431, 0.278431, 1)
+rotation = 1.5708
+texture = ExtResource("1_0ww3s")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5708
+scale = Vector2(1.95833, 1.96591)
+polygon = PackedVector2Array(0, -24.9249, -8, 7, -16, 1, -22, 11, -19, 24, -8.68085, 30.0116, 0, 23.3988, 9.19149, 30.0116, 19, 24, 22.4681, 11.1908, 16, 1, 8, 7)
+metadata/_edit_lock_ = true
