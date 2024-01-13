@@ -5,11 +5,18 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tqjyy")
+metadata/_edit_lock_ = true
 
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_rpy3c")]
-position = Vector2(588, 297)
+position = Vector2(471, 330)
+
+[node name="Middle" type="Node2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Camera2D" type="Camera2D" parent="Middle"]
+zoom = Vector2(0.5, 0.5)
 
 [connection signal="shotLaser" from="Player" to="." method="_on_player_shot_laser"]
