@@ -40,9 +40,11 @@ metadata/_edit_lock_ = true
 position = Vector2(-0.75, -801)
 shape = SubResource("RectangleShape2D_2vmdm")
 one_way_collision = true
+metadata/_edit_lock_ = true
 
 [node name="BottomCollider" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 989)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_2vmdm")
 one_way_collision = true
+metadata/_edit_lock_ = true
