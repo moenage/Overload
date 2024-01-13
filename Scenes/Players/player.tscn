@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bx8524qv5jvsq" path="res://Assets/Sprites/ship_I.png" id="1_r62oi"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 13
 script = ExtResource("1_i1yqs")
 metadata/_edit_lock_ = true
 
