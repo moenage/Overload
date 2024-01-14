@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 class_name Enemy
 
-var speed: float = 200.0
+@export var speed: float = 200.0
 var target: CharacterBody2D
 
 signal enemyShotLaser(pos, laserDir)
 
 func _ready():
-	target = get_parent().get_parent().get_node("Player")
+	target = get_parent().get_parent().get_parent().get_node("Player")
+	$ShootLaser.autostart = true
 
 func _physics_process(_delta):
 	velocity = position.direction_to(target.position) * speed

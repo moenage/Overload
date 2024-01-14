@@ -1,26 +1,27 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx01r5ikeih0n"]
 
-[ext_resource type="Texture2D" uid="uid://edmehrxmn2xa" path="res://Assets/Sprites/Enemies/ship_sidesA.png" id="1_0ww3s"]
-[ext_resource type="Script" path="res://Scenes/Enemies/enemy_1.gd" id="1_fiob4"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/enemy_1.gd" id="1_bjrur"]
+[ext_resource type="Texture2D" uid="uid://edmehrxmn2xa" path="res://Assets/Sprites/Enemies/ship_sidesA.png" id="2_ijn0r"]
 
 [node name="Enemy1" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 27
-script = ExtResource("1_fiob4")
+script = ExtResource("1_bjrur")
+speed = 0.0
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.278431, 0.278431, 1)
 rotation = 1.5708
-texture = ExtResource("1_0ww3s")
+texture = ExtResource("2_ijn0r")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 1)
 rotation = 1.5708
 scale = Vector2(1.95833, 1.96591)
-polygon = PackedVector2Array(-0.51073, -25.0944, -8, 7, -16, 1, -22.2979, 11.5299, -19.5744, 25.0945, -8.68075, 30.5202, 0, 23.3988, 9.19149, 30.0116, 19, 24, 22.4681, 11.1908, 16, 1, 8, 7)
+polygon = PackedVector2Array(-0.51073, -25.0944, -8, 7, -16, 1, -22.2979, 11.5299, -19.5744, 25.0945, -8.68075, 30.5202, 0, 23.3988, 8.00012, 30.5202, 19, 24, 22.4681, 11.1908, 16, 1, 8, 7)
 metadata/_edit_lock_ = true
 
 [node name="ShootLaser" type="Timer" parent="."]
@@ -28,5 +29,6 @@ autostart = true
 
 [node name="LaserPoint" type="Marker2D" parent="."]
 position = Vector2(44.6667, 0)
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="ShootLaser" to="." method="_on_shoot_laser_timeout"]
