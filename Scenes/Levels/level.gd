@@ -7,7 +7,7 @@ extends Node2D
 
 var laserScene: PackedScene = preload("res://Scenes/Projectiles/laser.tscn")
 
-var enemyScene: PackedScene = preload("res://Scenes/Enemies/Enemy1/enemy_1_handler.tscn")
+var enemyScene: PackedScene = preload("res://Scenes/Enemies/Enemy1/enemy_1.tscn")
 
 #Spawn Bullet from player
 func _on_player_shot_laser(pos, laserDir):
