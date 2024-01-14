@@ -41,4 +41,5 @@ position = Vector2(260, 177)
 position = Vector2(471, 330)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="enemyShotLaser" from="Enemies/Enemy1" to="." method="_on_enemy_1_enemy_shot_laser"]
 [connection signal="shotLaser" from="Player" to="." method="_on_player_shot_laser"]

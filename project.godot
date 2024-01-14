@@ -60,6 +60,7 @@ primaryAction={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Wall"
 2d_physics/layer_5="ProtectMe"
+2d_physics/layer_6="Enemy_Projectiles"
 
 [rendering]
 
