@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Enemy
 
+@export var health = 50
+
 @export var speed: float = 200.0
 var target: CharacterBody2D
 var levelNode: Node2D
@@ -27,3 +29,8 @@ func _on_shoot_laser_timeout():
 	laser.rotation_degrees = rad_to_deg(laserDir.angle()) + 90
 	laser.direction = laserDir
 	levelNode.get_node("Projectiles").add_child(laser)
+
+func enemyHit(damage):
+	health -= damage
+	if(health <= 0):
+		queue_free()

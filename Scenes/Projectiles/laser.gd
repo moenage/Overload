@@ -8,5 +8,8 @@ func _process(delta):
 	position += direction * speed * delta
 	
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
+	if "enemyHit" in body:
+		body.enemyHit(10)
+		print("Enemy has ", body.health, " health")
 	queue_free()
