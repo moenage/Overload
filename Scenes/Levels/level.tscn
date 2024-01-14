@@ -40,5 +40,7 @@ position = Vector2(260, 177)
 [node name="Player" parent="." instance=ExtResource("1_rpy3c")]
 position = Vector2(471, 330)
 
+[node name="testnodeyazi" type="Node2D" parent="."]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="shotLaser" from="Player" to="." method="_on_player_shot_laser"]
