@@ -21,16 +21,24 @@ metadata/_edit_lock_ = true
 
 [node name="Floor" parent="Middle" instance=ExtResource("2_bk3w6")]
 
-[node name="Player" parent="." instance=ExtResource("1_rpy3c")]
-position = Vector2(471, 330)
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="Enemy1" parent="." instance=ExtResource("4_dsl7r")]
+[node name="Enemies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource("4_dsl7r")]
 position = Vector2(1102, 371)
 
 [node name="ProtectMe" parent="." instance=ExtResource("5_kkfh7")]
 position = Vector2(260, 177)
 
+[node name="Player" parent="." instance=ExtResource("1_rpy3c")]
+position = Vector2(471, 330)
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="shotLaser" from="Player" to="." method="_on_player_shot_laser"]
