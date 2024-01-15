@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
 var playerSpeed: int = 500
-
 var canLaser: bool = true
-
 var overload = 0
 
 signal shotLaser(pos, laserDir)
