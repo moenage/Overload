@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://blki0jk7dt4ae"]
+
+[ext_resource type="Script" path="res://Scenes/Players/overloader.gd" id="1_rxovq"]
+
+[node name="Overloader" type="Node2D"]
+script = ExtResource("1_rxovq")
+rotateSpeed = 0
+overloadWait = 0.1
+overloadSpawnCount = 7
+
+[node name="OverloadTimer" type="Timer" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[connection signal="timeout" from="OverloadTimer" to="." method="_on_overload_timer_timeout"]
