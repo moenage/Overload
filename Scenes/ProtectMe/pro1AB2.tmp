@@ -6,10 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_23bfk"]
 radius = 46.0
 
-[node name="ProtectMe" type="CharacterBody2D"]
+[node name="ProtectMe" type="RigidBody2D"]
 collision_layer = 16
 collision_mask = 15
-floor_constant_speed = true
+gravity_scale = 0.0
 script = ExtResource("1_vl5wf")
 metadata/_edit_lock_ = true
 

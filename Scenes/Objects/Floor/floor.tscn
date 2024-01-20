@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bgx8aedmht4ix" path="res://Assets/Sprites/Tiles/output-onlinepngtools.png" id="1_rfpxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urewb"]
-size = Vector2(1801, 9.5)
+size = Vector2(1801, 183.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vmdm"]
-size = Vector2(3456.5, 10)
+size = Vector2(3456.5, 120)
 
 [node name="Floor" type="StaticBody2D"]
 collision_layer = 8
@@ -23,28 +23,24 @@ region_rect = Rect2(0, 0, 3457, 1795)
 metadata/_edit_lock_ = true
 
 [node name="LeftCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-1728, 92.5)
+position = Vector2(-1816.13, 92.4998)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_urewb")
-one_way_collision = true
 metadata/_edit_lock_ = true
 
 [node name="RightCollider" type="CollisionShape2D" parent="."]
-position = Vector2(1727.25, 92.5)
+position = Vector2(1814.19, 100.5)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_urewb")
-one_way_collision = true
 metadata/_edit_lock_ = true
 
 [node name="TopCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-0.75, -801)
+position = Vector2(-0.750084, -858)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_2vmdm")
-one_way_collision = true
 metadata/_edit_lock_ = true
 
 [node name="BottomCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-0.75, 990)
+position = Vector2(-0.75, 1044)
 shape = SubResource("RectangleShape2D_2vmdm")
-one_way_collision = true
 metadata/_edit_lock_ = true

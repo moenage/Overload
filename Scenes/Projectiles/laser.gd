@@ -14,4 +14,6 @@ func _on_body_entered(body):
 		print("Enemy has ", body.health, " health")
 	elif "ballHit" in body:
 		body.ballHit(10)
+	elif "objHit" in body:
+		body.objHit(10)
 	queue_free()

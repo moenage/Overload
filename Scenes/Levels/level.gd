@@ -9,6 +9,7 @@ extends Node2D
 #Getting scenes
 var laserScene: PackedScene = preload("res://Scenes/Projectiles/laser.tscn")
 var enemyScene: PackedScene = preload("res://Scenes/Enemies/Enemy1/enemy_1.tscn")
+var boxScene: PackedScene = preload("res://Scenes/Objects/Obstacles/box_obstacle.tscn")
 
 # Spawn Bullet from player
 func _on_player_shot_laser(pos, laserDir):
@@ -19,7 +20,8 @@ func _on_player_shot_laser(pos, laserDir):
 
 # Spawn enemies within the arena borders
 func _on_spawn_timer_timeout():
-	var enemy = enemyScene.instantiate() as Node2D
+	var enemy = enemyScene.instantiate() as CharacterBody2D
 	enemy.position = Vector2(randf_range(minxCoord,maxxCoord), randf_range(minyCoord,maxyCoord))
+	
 	$Enemies.add_child(enemy)
 	$SpawnTimer.wait_time -= 0.1

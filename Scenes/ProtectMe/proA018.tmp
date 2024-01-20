@@ -9,7 +9,6 @@ radius = 46.0
 [node name="ProtectMe" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 15
-floor_constant_speed = true
 script = ExtResource("1_vl5wf")
 metadata/_edit_lock_ = true
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1mkior2cddt4"]
+[gd_scene load_steps=7 format=3 uid="uid://c1mkior2cddt4"]
 
 [ext_resource type="PackedScene" uid="uid://cses2ossl5e6r" path="res://Scenes/Players/player.tscn" id="1_rpy3c"]
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_tqjyy"]
 [ext_resource type="PackedScene" uid="uid://c72lp7nc2nm1d" path="res://Scenes/Objects/Floor/floor.tscn" id="2_bk3w6"]
+[ext_resource type="PackedScene" uid="uid://dxdn42oxjv3v0" path="res://Scenes/Objects/Obstacles/box_obstacle.tscn" id="5_1cwlj"]
 [ext_resource type="Script" path="res://Scenes/Levels/overloadBar.gd" id="5_iluer"]
 [ext_resource type="PackedScene" uid="uid://ccxf1x0oylguv" path="res://Scenes/ProtectMe/protect_me.tscn" id="5_kkfh7"]
 
@@ -37,12 +38,20 @@ metadata/_edit_lock_ = true
 
 [node name="Floor" parent="Middle" instance=ExtResource("2_bk3w6")]
 
+[node name="Projectiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
-[node name="Projectiles" type="Node2D" parent="."]
+[node name="ObstacleTimer" type="Timer" parent="."]
+
+[node name="Obstacles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="BoxObstacle" parent="Obstacles" instance=ExtResource("5_1cwlj")]
+position = Vector2(1801, 606)
 
 [node name="Enemies" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

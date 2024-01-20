@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxdn42oxjv3v0"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Obstacles/box_obstacle.gd" id="1_u5gva"]
+[ext_resource type="Texture2D" uid="uid://cpfcip6r3itoy" path="res://Assets/Sprites/Objects/meteor_squareLarge.png" id="1_xkdma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f5pn"]
+size = Vector2(82, 82)
+
+[node name="BoxObstacle" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 63
+script = ExtResource("1_u5gva")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.958186
+scale = Vector2(2, 2)
+texture = ExtResource("1_xkdma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_2f5pn")
