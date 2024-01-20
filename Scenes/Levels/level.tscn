@@ -1,13 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1mkior2cddt4"]
+[gd_scene load_steps=6 format=3 uid="uid://c1mkior2cddt4"]
 
 [ext_resource type="PackedScene" uid="uid://cses2ossl5e6r" path="res://Scenes/Players/player.tscn" id="1_rpy3c"]
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_tqjyy"]
 [ext_resource type="PackedScene" uid="uid://c72lp7nc2nm1d" path="res://Scenes/Objects/Floor/floor.tscn" id="2_bk3w6"]
+[ext_resource type="Script" path="res://Scenes/Levels/overloadBar.gd" id="5_iluer"]
 [ext_resource type="PackedScene" uid="uid://ccxf1x0oylguv" path="res://Scenes/ProtectMe/protect_me.tscn" id="5_kkfh7"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tqjyy")
 metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="overloadBar" type="ProgressBar" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.446
+anchor_top = -0.404
+anchor_right = -0.446
+anchor_bottom = -0.404
+offset_left = 911.32
+offset_top = -5.67999
+offset_right = 1517.32
+offset_bottom = 21.32
+scale = Vector2(3, 3)
+script = ExtResource("5_iluer")
 
 [node name="Middle" type="Node2D" parent="."]
 position = Vector2(960, 540)

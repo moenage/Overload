@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx01r5ikeih0n"]
+[gd_scene load_steps=5 format=3 uid="uid://bx01r5ikeih0n"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/enemy_1.gd" id="1_bjrur"]
 [ext_resource type="Texture2D" uid="uid://edmehrxmn2xa" path="res://Assets/Sprites/Enemies/ship_sidesA.png" id="2_ijn0r"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/Control.gd" id="3_054ay"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/HP.gd" id="3_pnevu"]
 
 [node name="Enemy1" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
@@ -29,5 +31,22 @@ autostart = true
 
 [node name="LaserPoint" type="Marker2D" parent="."]
 position = Vector2(56, 0)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 109.0
+offset_bottom = 99.0
+script = ExtResource("3_054ay")
+
+[node name="HP" type="ProgressBar" parent="UI"]
+offset_left = -37.0
+offset_top = 48.6667
+offset_right = 210.0
+offset_bottom = 104.667
+scale = Vector2(0.3, 0.3)
+value = 100.0
+show_percentage = false
+script = ExtResource("3_pnevu")
 
 [connection signal="timeout" from="ShootLaser" to="." method="_on_shoot_laser_timeout"]

@@ -3,8 +3,9 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var health = 50
-
+var max_health = health
 @export var speed: float = 200.0
+
 var target: CharacterBody2D
 var levelNode: Node2D
 
@@ -19,7 +20,6 @@ func _physics_process(_delta):
 	velocity = position.direction_to(target.position) * speed
 	look_at(target.position)
 	move_and_slide()
-
 
 func _on_shoot_laser_timeout():
 	var laserDir = (target.global_position - global_position).normalized()

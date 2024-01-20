@@ -6,11 +6,9 @@ extends Node2D
 @export var maxxCoord: int = 2563
 @export var maxyCoord: int = 1400
 
-
 #Getting scenes
 var laserScene: PackedScene = preload("res://Scenes/Projectiles/laser.tscn")
 var enemyScene: PackedScene = preload("res://Scenes/Enemies/Enemy1/enemy_1.tscn")
-	
 
 # Spawn Bullet from player
 func _on_player_shot_laser(pos, laserDir):
