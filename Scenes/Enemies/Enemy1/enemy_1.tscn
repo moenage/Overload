@@ -40,6 +40,7 @@ offset_bottom = 99.0
 script = ExtResource("3_054ay")
 
 [node name="HP" type="ProgressBar" parent="UI"]
+layout_mode = 0
 offset_left = -37.0
 offset_top = 48.6667
 offset_right = 210.0
