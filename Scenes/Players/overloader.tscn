@@ -12,4 +12,9 @@ overloadSpawnCount = 7
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
+[node name="SloMoTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="OverloadTimer" to="." method="_on_overload_timer_timeout"]
+[connection signal="timeout" from="SloMoTimer" to="." method="_on_slo_mo_timer_timeout"]

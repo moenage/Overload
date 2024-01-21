@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cawivykqsnh1c"]
+
+[ext_resource type="Script" path="res://Scenes/Projectiles/EnemyEnergyBall/energy_ball.gd" id="1_47hcc"]
+[ext_resource type="Texture2D" uid="uid://cimgw3hxr15or" path="res://Assets/Sprites/Projectiles/laserRed08.png" id="1_i3a04"]
+[ext_resource type="AudioStream" uid="uid://bu7167416ccfq" path="res://Assets/Sounds/laser6.ogg" id="3_33kdg"]
+[ext_resource type="AudioStream" uid="uid://ceutwbgh135u4" path="res://Assets/Sounds/explosionCrunch_000.ogg" id="4_jx5uq"]
+[ext_resource type="Texture2D" uid="uid://cws20q5piyvfp" path="res://Assets/Sprites/Explosions/explosion_3.png" id="4_oetyc"]
+[ext_resource type="Texture2D" uid="uid://dr868ttfs08i" path="res://Assets/Sprites/Explosions/circle.png" id="6_m56nk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwma2"]
+radius = 26.0768
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgmsi"]
+radius = 68.0
+
+[node name="EnergyBall" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 9
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_47hcc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_i3a04")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qwma2")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+disable_mode = 1
+collision_layer = 32
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jgmsi")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_33kdg")
+autoplay = true
+metadata/_edit_lock_ = true
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture = ExtResource("4_oetyc")
+hframes = 8
+vframes = 8
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jx5uq")
+volume_db = -10.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.854902, 0, 0.129412, 1)
+texture = ExtResource("6_m56nk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

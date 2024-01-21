@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj6lnmjnoa2i5"]
+
+[ext_resource type="Texture2D" uid="uid://bx8524qv5jvsq" path="res://Assets/Sprites/ship_I.png" id="1_2li67"]
+[ext_resource type="Script" path="res://Scenes/Players/Shadow.gd" id="2_paxav"]
+
+[node name="Shadow" type="Sprite2D"]
+modulate = Color(0.305882, 0.305882, 0.305882, 1)
+show_behind_parent = true
+rotation = 1.5708
+texture = ExtResource("1_2li67")
+script = ExtResource("2_paxav")

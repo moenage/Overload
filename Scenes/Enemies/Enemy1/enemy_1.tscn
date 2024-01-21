@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx01r5ikeih0n"]
+[gd_scene load_steps=7 format=3 uid="uid://bx01r5ikeih0n"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/enemy_1.gd" id="1_bjrur"]
 [ext_resource type="Texture2D" uid="uid://edmehrxmn2xa" path="res://Assets/Sprites/Enemies/ship_sidesA.png" id="2_ijn0r"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/Control.gd" id="3_054ay"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/HP.gd" id="3_pnevu"]
+[ext_resource type="Texture2D" uid="uid://dr868ttfs08i" path="res://Assets/Sprites/Explosions/circle.png" id="5_k502q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1v0xa"]
 radius = 42.6667
@@ -50,5 +51,9 @@ scale = Vector2(0.3, 0.3)
 value = 100.0
 show_percentage = false
 script = ExtResource("3_pnevu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.854902, 0, 0.129412, 1)
+texture = ExtResource("5_k502q")
 
 [connection signal="timeout" from="ShootLaser" to="." method="_on_shoot_laser_timeout"]

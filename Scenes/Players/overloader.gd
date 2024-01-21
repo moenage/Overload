@@ -7,6 +7,7 @@ extends Node2D
 var radius = 100
 
 @onready var overloadTimer = $OverloadTimer
+@onready var slowMoTimer = $SloMoTimer
 @onready var overloader = $"."
 @onready var spawnPoints = $SpawnPoints
 
@@ -27,6 +28,8 @@ func _ready():
 
 func startOverload():
 	overloadTimer.start()
+	Engine.time_scale = 0.1
+	slowMoTimer.start()
 	set_process(true)
 	
 func stopOverload():
@@ -40,3 +43,6 @@ func _process(delta):
 func _on_overload_timer_timeout():
 	for i in spawnPoints.get_children():
 		overloadLaser.emit(i.global_position, i.global_rotation)
+
+func _on_slo_mo_timer_timeout():
+	Engine.time_scale = 1

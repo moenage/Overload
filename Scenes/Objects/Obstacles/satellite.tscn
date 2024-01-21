@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg86fp2g0l0gl"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Obstacles/satellite.gd" id="1_1frbw"]
+[ext_resource type="Texture2D" uid="uid://dxp5q03gcomtb" path="res://Assets/Sprites/Objects/spaceStation_018.png" id="1_2avaq"]
+[ext_resource type="Texture2D" uid="uid://dr868ttfs08i" path="res://Assets/Sprites/Explosions/circle.png" id="3_pjins"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bidt"]
+radius = 52.0
+height = 342.0
+
+[node name="Satellite" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 63
+script = ExtResource("1_1frbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2avaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7bidt")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_pjins")
+texture_scale = 0.5

@@ -1,10 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxdn42oxjv3v0"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Obstacles/box_obstacle.gd" id="1_u5gva"]
-[ext_resource type="Texture2D" uid="uid://cpfcip6r3itoy" path="res://Assets/Sprites/Objects/meteor_squareLarge.png" id="1_xkdma"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f5pn"]
-size = Vector2(82, 82)
+[ext_resource type="Texture2D" uid="uid://csof2amwjemfx" path="res://Assets/Sprites/Objects/meteorGrey_big4.png" id="2_sfro1"]
+[ext_resource type="Texture2D" uid="uid://dr868ttfs08i" path="res://Assets/Sprites/Explosions/circle.png" id="3_uq1ca"]
 
 [node name="BoxObstacle" type="StaticBody2D"]
 collision_layer = 8
@@ -14,8 +12,11 @@ script = ExtResource("1_u5gva")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 0.958186
 scale = Vector2(2, 2)
-texture = ExtResource("1_xkdma")
+texture = ExtResource("2_sfro1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_2f5pn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-72, -64, 13, -92, 92, -26, 71, 62, -32, 93, -94, 21)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_uq1ca")
+texture_scale = 0.5

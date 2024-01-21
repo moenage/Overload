@@ -2,26 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://uog305jawnqe" path="res://Assets/Sprites/ProtectMe/ufoGreen.png" id="1_6rncs"]
 [ext_resource type="Script" path="res://Scenes/ProtectMe/protect_me.gd" id="1_vl5wf"]
-[ext_resource type="Texture2D" uid="uid://dr868ttfs08i" path="res://Assets/Sprites/Explosions/circle.png" id="4_yrwno"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pui53"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_23bfk"]
 radius = 46.0
 
-[node name="ProtectMe" type="CharacterBody2D"]
-process_mode = 3
+[node name="ProtectMe" type="RigidBody2D"]
 collision_layer = 16
 collision_mask = 15
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_pui53")
+gravity_scale = 0.0
+can_sleep = false
+linear_velocity = Vector2(1500, 1500)
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_vl5wf")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.556863, 1)
 texture = ExtResource("1_6rncs")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_23bfk")
 metadata/_edit_lock_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.180392, 0.631373, 0, 1)
-texture = ExtResource("4_yrwno")

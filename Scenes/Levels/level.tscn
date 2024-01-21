@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1mkior2cddt4"]
+[gd_scene load_steps=12 format=3 uid="uid://c1mkior2cddt4"]
 
 [ext_resource type="PackedScene" uid="uid://cses2ossl5e6r" path="res://Scenes/Players/player.tscn" id="1_rpy3c"]
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_tqjyy"]
 [ext_resource type="PackedScene" uid="uid://c72lp7nc2nm1d" path="res://Scenes/Objects/Floor/floor.tscn" id="2_bk3w6"]
-[ext_resource type="PackedScene" uid="uid://dxdn42oxjv3v0" path="res://Scenes/Objects/Obstacles/box_obstacle.tscn" id="5_1cwlj"]
+[ext_resource type="Texture2D" uid="uid://uog305jawnqe" path="res://Assets/Sprites/ProtectMe/ufoGreen.png" id="3_d52gc"]
+[ext_resource type="Script" path="res://Scenes/Levels/protectHealth.gd" id="3_xsfhr"]
+[ext_resource type="Script" path="res://Scenes/Levels/RichTextLabel.gd" id="5_e10ma"]
 [ext_resource type="Script" path="res://Scenes/Levels/overloadBar.gd" id="5_iluer"]
 [ext_resource type="PackedScene" uid="uid://ccxf1x0oylguv" path="res://Scenes/ProtectMe/protect_me.tscn" id="5_kkfh7"]
+[ext_resource type="PackedScene" uid="uid://v77mhhqqadqi" path="res://Scenes/Levels/game_over.tscn" id="6_tv3tq"]
+[ext_resource type="PackedScene" uid="uid://dohdc266h33qe" path="res://Scenes/Levels/audio_stream_player_2d.tscn" id="9_n1iym"]
+
+[sub_resource type="Environment" id="Environment_aev0e"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 0.45
+glow_bloom = 0.15
+glow_blend_mode = 0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tqjyy")
@@ -20,12 +31,45 @@ anchor_left = -0.446
 anchor_top = -0.404
 anchor_right = -0.446
 anchor_bottom = -0.404
-offset_left = 911.32
-offset_top = -5.67999
-offset_right = 1517.32
-offset_bottom = 21.32
+offset_left = 1439.32
+offset_top = -17.68
+offset_right = 1689.32
+offset_bottom = 12.32
 scale = Vector2(3, 3)
 script = ExtResource("5_iluer")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/overloadBar"]
+position = Vector2(-320.667, 14.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_d52gc")
+
+[node name="protectHealth" type="ProgressBar" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.446
+anchor_top = -0.404
+anchor_right = -0.446
+anchor_bottom = -0.404
+offset_left = 543.32
+offset_top = -17.68
+offset_right = 793.32
+offset_bottom = 12.32
+scale = Vector2(3, 3)
+script = ExtResource("3_xsfhr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+offset_left = 1467.0
+offset_top = -454.0
+offset_right = 1717.0
+offset_bottom = -424.0
+scale = Vector2(3, 3)
+script = ExtResource("5_e10ma")
+
+[node name="ms" type="Timer" parent="UI/RichTextLabel"]
+wait_time = 0.1
+autostart = true
+
+[node name="GameOver" parent="UI" instance=ExtResource("6_tv3tq")]
+visible = false
 
 [node name="Middle" type="Node2D" parent="."]
 position = Vector2(960, 540)
@@ -45,13 +89,20 @@ metadata/_edit_lock_ = true
 wait_time = 5.0
 autostart = true
 
+[node name="SpawnTimer2" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="SpawnTimer3" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
 [node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="Obstacles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
-
-[node name="BoxObstacle" parent="Obstacles" instance=ExtResource("5_1cwlj")]
-position = Vector2(1801, 606)
 
 [node name="Enemies" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -62,5 +113,33 @@ position = Vector2(260, 177)
 [node name="Player" parent="." instance=ExtResource("1_rpy3c")]
 position = Vector2(471, 330)
 
+[node name="ObSpawn1" type="Marker2D" parent="."]
+position = Vector2(1960, 152)
+metadata/_edit_lock_ = true
+
+[node name="ObSpawn2" type="Marker2D" parent="."]
+position = Vector2(1996, 1076)
+metadata/_edit_lock_ = true
+
+[node name="ObSpawn3" type="Marker2D" parent="."]
+position = Vector2(-188, 1048)
+metadata/_edit_lock_ = true
+
+[node name="ObSpawn4" type="Marker2D" parent="."]
+position = Vector2(-184, 180)
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("9_n1iym")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aev0e")
+
+[connection signal="timeout" from="UI/RichTextLabel/ms" to="UI/RichTextLabel" method="_on_ms_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer2" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer3" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
+[connection signal="child_exiting_tree" from="Obstacles" to="." method="_on_obstacles_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Enemies" to="." method="_on_enemies_child_exiting_tree"]
+[connection signal="endGame" from="ProtectMe" to="." method="_on_protect_me_end_game"]
 [connection signal="shotLaser" from="Player" to="." method="_on_player_shot_laser"]
